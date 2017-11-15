@@ -9,12 +9,24 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <% if user_signed_in? %>
+              <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, data: { confirm: "¿Estás seguro que deseas cerrar sesión?" } %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <% if user_signed_in? %>
-      <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, data: { confirm: "¿Estás seguro que deseas cerrar sesión?" } %>
-    <% end %>
 
     <%= yield %>
   </body>

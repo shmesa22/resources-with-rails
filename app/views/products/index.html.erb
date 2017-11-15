@@ -1,17 +1,20 @@
 <h1>Productos</h1>
-<table>
+
+<%= link_to "Crear", new_product_path %>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Descripción</th>
-      <th>Precio</th>
-      <th></th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Description</th>
+      <th scope="col">Precio</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.name %></td>
+        <th scope="row"><%= product.name %></th>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
         <td>
